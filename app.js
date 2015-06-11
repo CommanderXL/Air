@@ -411,167 +411,39 @@ app.all('*', function(req, res, next) {
 			var windDirectionUDValue="";
 			//左右风
 			var windDirectionLRValue="";
-			var buf_temperatureValue=new Buffer(1),
-			    buf_SwitchValue=new Buffer(1),
-			    buf_patternValue=new Buffer(1),
-			    buf_windSpeedValue=new Buffer(1),
-			    buf_windDirectionValue=new Buffer(1),
-			    buf_windDirectionUDValue=new Buffer(1),
-			    buf_windDirectionLRValue=new Buffer(1),
 			    //CRC校验码
-			    buf_CRCtemperature="",
+			var buf_CRCtemperature="",
 			    buf_CRCSwitchValue="",
 			    buf_CRCpatternValue="",
 			    buf_CRCwindSpeedValue="",
 			    buf_CRCwindDirectionUDValue="",
 			    buf_CRCwindDirectionLRvalue="";
 
-
-			var b_18=new Buffer([18]);
-			var b_19=new Buffer([19]);
-			var b_20=new Buffer([20]);
-			var b_21=new Buffer([21]);
-			var b_22=new Buffer([22]);
-			var b_23=new Buffer([23]);
-			var b_24=new Buffer([24]);
-			var b_25=new Buffer([25]);
-			var b_26=new Buffer([26]);
-			var b_27=new Buffer([27]);
-			var b_28=new Buffer([28]);
-			var b_29=new Buffer([29]);
-			var b_30=new Buffer([30]);
-			var b_31=new Buffer([31]);
-			var b_32=new Buffer([32]);
 			//开关
 			//温度
 			  temperatureValue=parseInt(temperatureValue);
 			  SwitchValue=temperatureValue;
-			  buf_temperatureValue[0]=temperatureValue;
-			  buf_SwitchValue[0]=SwitchValue;
 
-		
 
-			  switch(temperatureValue){
-			  case 18:   
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_18]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_18]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;    
-			    //buf_CRCSwitchValue=new Buffer([224,70]);buf_CRCtemperature=new Buffer([16,70]);break;
-			  case 19:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_19]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_19]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([33,134]);buf_CRCtemperature=new Buffer([209,134]);break;
-			  case 20:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_20]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_20]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([96,68]);buf_CRCtemperature=new Buffer([144,68]);break;
-			  case 21:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_21]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_21]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([161,132]);buf_CRCtemperature=new Buffer([81,132]);break;
-			  case 22:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_22]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_22]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([225,133]);buf_CRCtemperature=new Buffer([17,133]);break;
-			  case 23:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_23]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_23]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([32,69]);buf_CRCtemperature=new Buffer([208,69]);break;
-			  case 24:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_24]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_24]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([96,65]);buf_CRCtemperature=new Buffer([144,65]);break;
-			  case 25:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_25]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_25]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([161,129]);buf_CRCtemperature=new Buffer([81,129]);break;
-			  case 26:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_26]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_26]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([225,128]);buf_CRCtemperature=new Buffer([11,128]);break;
-			  case 27:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_27]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_27]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([32,64]);buf_CRCtemperature=new Buffer([208,64]);break;
-			  case 28:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_28]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_28]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([97,130]);buf_CRCtemperature=new Buffer([145,130]);break;
-			  case 29:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_29]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_29]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([160,66]);buf_CRCtemperature=new Buffer([80,66]);break;
-			  case 30:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_30]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_30]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([224,67]);buf_CRCtemperature=new Buffer([16,67]);break;
-			  case 31:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_31]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_31]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([33,131]);buf_CRCtemperature=new Buffer([209,131]);break;
-			  case 32:
-			    SubBufferSwitch=Buffer.concat([SubBufferSwitch,b_32]);
-			    SubBufferTemperature=Buffer.concat([SubBufferTemperature,b_32]);
-			    buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
-			    buf_CRCtemperature=resortCRC(SubBufferTemperature);
-			    break;
-			    //buf_CRCSwitchValue=new Buffer([97,147]);buf_CRCtemperature=new Buffer([145,147]);break;
-			  }
+			  var SubBufferSwitch=Buffer.concat([SubBufferSwitch,new Buffer([temperatureValue])]);
+			  var SubBufferTemperature=Buffer.concat([SubBufferTemperature,new Buffer([temperatureValue])]);
+			  var buf_CRCSwitchValue=resortCRC(SubBufferSwitch);
+			  var buf_CRCtemperature=resortCRC(SubBufferTemperature);
+
+
+
+			/**/
 			
 			//模式
 			switch(patternValue){
-
 			  case "cold":
 			    SubBufferPattern=Buffer.concat([SubBufferPattern,new Buffer([1]),new Buffer([temperatureValue])]);
 			    buf_CRCpatternValue=resortCRC(SubBufferPattern);
 			    break;
-			    //buf_patternValue[0]=1;buf_CRCpatternValue=new Buffer([0,75]);break;
 			  case "hot":
 			    SubBufferPattern=Buffer.concat([SubBufferPattern,new Buffer([2]),new Buffer([temperatureValue])]);
 			    buf_CRCpatternValue=resortCRC(SubBufferPattern);
 			    break;
-			    //buf_patternValue[0]=2;buf_CRCpatternValue=new Buffer([64,74]);break;
 			}
 			//风速
 			switch(windSpeedValue){
@@ -610,26 +482,22 @@ app.all('*', function(req, res, next) {
 			
 			//开关
 			var SCommand=Buffer.concat([SubBufferSwitch,buf_CRCSwitchValue,frameEnd]);
-			//var SCommand=Buffer.concat([frameHeader,frameID,new Buffer([1,1,18,224,70,126])]);
 
 			//温度
 			var TCommand=Buffer.concat([SubBufferTemperature,buf_CRCtemperature,frameEnd]);
-			//var TCommand=Buffer.concat([frameHeader,frameID,new Buffer([2,1,18,16,70,126])]);
 
 			//模式
 			var PCommand=Buffer.concat([SubBufferPattern,buf_CRCpatternValue,frameEnd]);
-			//var PCommand=Buffer.concat([frameHeader,frameID,new Buffer([3,2,1,18,59,13,126])])
 
 			//风速
 			var WSCommand=Buffer.concat([SubBufferWindSpeed,buf_CRCwindSpeedValue,frameEnd]);
-			//var WSCommand=Buffer.concat([frameHeader,frameID,new Buffer([4,2,1,18,58,121,126])]);
 
 			
 			//上下风
-			//var finalCommand=Buffer.concat([SCommand,TCommand,PCommand,WSCommand,UPPER]);
 			var finalCommand=Buffer.concat([SCommand,TCommand,PCommand,WSCommand,WDCommand]);
-			//向硬件发送数据
-		
+
+
+/*******************向硬件发送数据部分**************************/		
 		//单条控制命令
 		if(msg.a){
 			//本次控制数据
