@@ -449,7 +449,7 @@ app.all('*', function(req, res, next) {
 			  buf_temperatureValue[0]=temperatureValue;
 			  buf_SwitchValue[0]=SwitchValue;
 
-			 
+		
 
 			  switch(temperatureValue){
 			  case 18:   
