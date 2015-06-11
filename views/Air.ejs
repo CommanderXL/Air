@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link href="/css/metro-bootstrap.css" rel="stylesheet">
+    <link href="/css/metro-bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/iconFont.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <link href="/js/prettify/prettify.css" rel="stylesheet">
+
+    <!-- Load JavaScript Libraries -->
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/js/jquery/jquery.widget.min.js"></script>
+    <script src="/js/jquery/jquery.mousewheel.js"></script>
+    <script src="/js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="/js/load-metro.js"></script>
+    <style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			font-family: "微软雅黑";
+		}
+		.checked{
+			
+		}
+    </style>
+	<title>Distureted Air Conditioner Version 1</title>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+				$("button.submit").click(function(){
+					
+					var data={
+						Switch:$("select.Switch").find("option:selected").val(),
+						temperature:$("select.temperature").find("option:selected").val(),
+						pattern:$("select.pattern").find("option:selected").val(),
+						windSpeed:$("select.windSpeed").find("option:selected").val(),
+						windDirection:$("select.windDirection").find("option:selected").val(),
+						number101_f:$(".number101_f").prop("checked"),
+						number101_b:$(".number101_b").prop("checked")
+					}			
+				$.post("/",data,function(data){
+					console.log(data);
+				})	
+				return false;
+				})
+
+				$("button.refresh").click(function(){
+						var data={
+							temperature:$("select.temperature").find("option:selected").val(),
+							pattern:$("select.pattern").find("option:selected").val(),
+							windSpeed:$("select.windSpeed").find("option:selected").val(),
+							windDirection:$("select.windDirection").find("option:selected").val(),
+							number101_f:$(".number101_f").prop("checked"),
+							number101_b:$(".number101_b").prop("checked"),
+							a:"a"
+						}			
+					$.post("/",data,function(data){
+						console.log(data);
+					})	
+					return false;
+				})
+
+				$("input.number101").click(function(){
+					if(this.checked){
+						$(".number101Switch").prop("checked",true);			
+					}else{
+						$(".number101Switch").prop("checked",false);
+					}
+				})
+
+
+		})
+	</script>
+</head>
+<body class="metro">
+<div class="container">
+	<h1 >Distureted Air Conditioner <small class="on-right">Version 1</small></h1>
+	
+	<div class="example">
+		<div class="input-control switch">
+		<label>
+		开:
+        <input type="checkbox" checked="checked" />
+        <span class="check"></span>
+    	</label>
+    	<div class="input-control switch">
+    	<label>
+    	关:
+        <input type="checkbox" />
+        <span class="check"></span>
+   		</label>
+		</div>
+		</div>
+	</div>
+	<div class="example">	
+		<div class="grid  show-grid">
+			<div class="row">
+					<div class="span2">
+					<div class="input-control checkbox ">
+   						 <label>
+        					<input type="checkbox" class="floor floorOne" />
+        					<span class="check"></span>
+       						 Floor one
+    						</label>
+					</div>
+					</div>
+					<div class="span3">
+					<div class="input-control checkbox">
+							    <label>
+							    	101
+							        <input type="checkbox"  class="houseNumber number101" />
+							        <span class="check"></span>
+							    </label>
+							</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" class="checkbox number101Switch number101_f" />
+       								 <span class="check"></span>
+    							</label>
+							</div>&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" class="checkbox number101Switch number101_b"/>
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+							<div class="input-control checkbox">
+							    <label>
+							    	102
+							        <input type="checkbox" />
+							        <span class="check"></span>
+							    </label>
+							</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" />
+       								 <span class="check"></span>
+    							</label>
+							</div>&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" />
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+							<div class="input-control checkbox">
+							    <label>
+							    	103
+							        <input type="checkbox" />
+							        <span class="check"></span>
+							    </label>
+							</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" />
+       								 <span class="check"></span>
+    							</label>
+							</div>&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" />
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+						</div>
+						
+
+
+						<div class="span4">						
+						<div class="input-control checkbox">
+						    <label>
+						    	104
+						        <input type="checkbox" />
+						        <span class="check"></span>
+						    </label>
+						</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" />
+       								 <span class="check"></span>
+    							</label>
+							</div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" />
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+							<div class="input-control checkbox">
+							    <label>
+							    	105
+							        <input type="checkbox" />
+							        <span class="check"></span>
+							    </label>
+							</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" />
+       								 <span class="check"></span>
+    							</label>
+							</div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" />
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+							<div class="input-control checkbox">
+							    <label>
+							    	106
+							        <input type="checkbox" />
+							        <span class="check"></span>
+							    </label>
+							</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" />
+       								 <span class="check"></span>
+    							</label>
+							</div>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" />
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+						</div>
+						
+
+						<div class="span3">
+						<div class="input-control checkbox">
+						    <label>
+						    	107
+						        <input type="checkbox" />
+						        <span class="check"></span>
+						    </label>
+						</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" />
+       								 <span class="check"></span>
+    							</label>
+							</div>&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" />
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+							<div class="input-control checkbox">
+							    <label>
+							    	108
+							        <input type="checkbox" />
+							        <span class="check"></span>
+							    </label>
+							</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" />
+       								 <span class="check"></span>
+    							</label>
+							</div>&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" />
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+							<div class="input-control checkbox">
+							    <label>
+							    	109
+							        <input type="checkbox" />
+							        <span class="check"></span>
+							    </label>
+							</div>
+							<div class="input-control checkbox">
+    							<label>
+    								前
+        							<input type="checkbox" />
+       								 <span class="check"></span>
+    							</label>
+							</div>&nbsp;&nbsp;&nbsp;
+							<div class="input-control checkbox">
+    							<label>
+    								后
+        							<input type="checkbox" />
+        							<span class="check"></span>
+    								</label>
+							</div>
+							<br/>
+						</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="example">
+	<form method="post" action="/">
+	<div class="grid">
+		<div class="row">
+				<div class="span2">
+					<div class="input-control select warning-state">
+
+					<select class="Switch" name="Switch">
+						<option value="on" selected="selected" >开</option>
+						<option value="off">关</option>
+					</select>
+					</div>
+				</div>
+				<div class="span2">
+					<div class="input-control select info-state">
+					<select class="pattern" name="pattern">
+						<option value="cold" selected="selected">制冷</option>
+						<option value="hot">制热</option>
+					</select>
+					</div>
+				</div>
+				<div class="span2">
+					<div class="input-control select info-state">
+						<select class="temperature" name="temperature">
+							<option value="18" selected="selected">18℃</option>
+							<option value="19">19℃</option>
+							<option value="20">20℃</option>
+							<option value="21">21℃</option>
+							<option value="22">22℃</option>
+							<option value="23">23℃</option>
+							<option value="24">24℃</option>
+							<option value="25">25℃</option>
+							<option value="26">26℃</option>
+							<option value="27">27℃</option>
+							<option value="28">28℃</option>
+							<option value="29">29℃</option>
+							<option value="30">30℃</option>
+							<option value="31">31℃</option>
+							<option value="32">32℃</option>
+						</select>
+					</div>
+				</div>
+				<div class="span2">
+					<div class="input-control select info-state">
+						<select class="windSpeed" name="windSpeed">
+							<option value="one" selected="selected">一级</option>
+							<option value="two">二级</option>
+							<option value="three">三级</option>
+							<option value="four">四级</option>
+						</select>
+						</div>
+				</div>
+				<div class="span2">
+					<div class="input-control select info-state">
+					<select class="windDirection" name="windDirection">
+							<option value="upDown" selected="selected">上下风</option>
+							<option value="leftRight">左右风</option>
+						</select>
+						</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="grid">
+			<div class="row">
+				<div class="span2 " >
+					<button type="submit" class="danger submit">Submit<i class="icon-rocket on-right-more"></i></button>
+				</div>
+
+				<div class="span2 ">
+					<button class="success refresh">Refresh<i class="icon-cycle on-right-more"></i></button>
+				</div>
+
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Show List</title>
+	
+	<link href="/css/metro-bootstrap.css" rel="stylesheet">
+    <link href="/css/metro-bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/iconFont.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <link href="/js/prettify/prettify.css" rel="stylesheet">
+
+	<script type="text/javascript"  src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css">
+	<script type="text/javascript" src="http://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+	<!-- Load JavaScript Libraries -->
+	<script src="/js/jquery/jquery.widget.min.js"></script>
+    <script src="/js/jquery/jquery.mousewheel.js"></script>
+    <script src="/js/prettify/prettify.js"></script>
+	<!-- Metro UI CSS JavaScript plugins -->
+    <script src="/js/load-metro.js"></script>
+	<style type="text/css">
+		*{
+			font-family: "微软雅黑";
+		}
+	</style>
+</head>
+<script type="text/javascript">
+	$(document).ready(function() {
+     $('#example').dataTable({
+        "bAutoWidth":false,
+     	//语言设置
+     	"language":{
+     		"lengthMenu":"每页_MENU_条记录",
+     		"zeroRecords":"没有找到记录",
+     		"info":"第_PAGE_页(总共_PAGES_页)",
+     		"infoEmpty":"无记录",
+     		"infoFiltered":"(从_MAX_条记录过滤)",
+     		"search":"搜索"
+     	},
+        //ajax获取数据  
+        "ajax":"test",     
+        "columns": [
+            { "data": "floor","className":"dt-body-center" },
+            { "data": "location","className":"dt-body-center" },
+            { "data": "remoteIP","className":"dt-body-center" },
+            { "data": "Switch","className":"dt-body-center" },
+            { "data": "temperature","className":"dt-body-center" },
+            { "data": "pattern" ,"className":"dt-body-center"},
+            { "data": "windSpeed","className":"dt-body-center" },
+            { "data": "windDirection","className":"dt-body-center" },
+            { "data": "state","className":"dt-body-center" },
+        ]
+      
+     });
+
+     $(".button").click(function(){
+        var option={
+            type:"get",
+            url:"testState",
+            contentType:"applcation/json;charset:utf-8",
+            dataType:"json",
+            success:function(response){
+                if(response){
+                    $("tbody.testState").html("");
+                    var Rlength=response.length;
+                    for(var i=0;i<Rlength;i++){
+                        $("tbody.testState").append("<tr><td class='text-center'>"+response[i].floor+"</td><td class='text-center'>"+response[i].location+"</td><td class='text-center'>"+response[i].remoteIP+"</td><td class='text-center'>"+response[i].Switch+"</td><td class='text-center'>"+response[i].temperature+"</td><td class='text-center'>"+response[i].pattern+"</td><td class='text-center'>"+response[i].windSpeed+"</td><td class='text-center'>"+response[i].windDirection+"</td><td class='text-center'>"+response[i].state+"</td></tr>");
+                    }
+                }
+            },
+            error:function(error){
+                alert(error)
+            }
+        }
+        $.ajax(option);
+     })
+
+});
+</script>
+<body class="metro">
+<div class="example">
+<div class="container">
+	<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>楼层</th>
+                <th>位置</th>
+                <th >IP</th>             
+                <th >开关</th>
+                <th>温度</th>
+                <th>模式</th>
+                <th>风速</th>
+                <th>风向</th>
+                <th>状态</th>         
+            </tr>
+        </thead>
+ 
+ 
+
+    </table>
+   </div>
+</div>
+    <div class="example">
+    <div class="container">
+        <table class="table" >
+        <thead>
+            <tr class="success">
+                <th class="text-center floor">楼层</th>
+                <th class="text-center location">位置</th>
+                <th class="text-center header">IP</th>
+                <th class="text-center id">开关</th>
+                <th class="text-center func">温度</th>
+                <th class="text-center length">模式</th>
+                <th class="text-center content">风速</th>
+                <th class="text-center crc">风向</th>
+                <th class="text-center end">状态</th>
+            </tr>
+        </thead>
+        <tbody class="testState">
+
+
+        </tbody>
+            
+        </table>
+    </div>
+</div>  
+<button class="success button">Refresh</button>
+</body>
+</html>
