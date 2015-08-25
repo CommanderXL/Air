@@ -2,12 +2,17 @@ var mongodb=require("./db.js");
 var async=require("async");
 
 function Command(AllCommand){
-	this.Switch=AllCommand.Switch,
-	this.temperature=AllCommand.temperature,
-	this.pattern=AllCommand.pattern,
-	this.windSpeed=AllCommand.windSpeed,
-	this.windDirection=AllCommand.windDirection,
-	this.state=AllCommand.state
+	this.floor=AllCommand.gFloor;
+	this.room=AllCommand.gRoom;
+	this.location=AllCommand.gLocation;
+	this.Switch=AllCommand.gSwitch;
+	this.pattern=AllCommand.gPattern;
+	this.windSpeed=AllCommand.gWindSpeed;
+	this.windDirection=AllCommand.gWindDirection;
+	this.temperature=AllCommand.gTemperature;
+	this.Rtemperature=AllCommand.Rtemperature;
+	//this.power=""; 用电量
+	this.state="Right";
 }
 
 module.exports=Command;
@@ -23,13 +28,18 @@ Command.prototype.save=function(callback){
 	}
 	//存入数据库的数据
 	var command={
-		remoteIP:this.remoteIP,		
+		//remoteIP:this.remoteIP, 使用房间号和位置进行定位	
 		time:time,
+		floor:this.floor,
+		room:this.room,
+		location:this.location,	//
 		Switch:this.Switch,
-		temperature:this.temperature,
 		pattern:this.pattern,
 		windSpeed:this.windSpeed,
 		windDirection:this.windDirection,
+		temperature:this.temperature,
+		Rtemperature:this.Rtemperature,
+		//power:this.power, 用电量
 		state:this.state
 	}
 		mongodb.open(function(err,db){
@@ -132,6 +142,29 @@ Command.getAll=function(callback){
 					result.push(doc);
 					*/
 				
+				callback(null,docs);
+			})
+		})
+	})
+}
+
+//获取测试数据
+Command.getconditionState=function(callback){
+	mongodb.open(function(err,db){
+		if(err){
+			return callback(err);
+		}
+		db.collection("conditionState",function(err,collection){
+			if(err){
+				mongodb.close();
+				return callback(err);
+			}
+			//取不含_id字段的数据
+			collection.find({},{"_id":false,"time":false}).toArray(function(err,docs){
+				mongodb.close();
+				if(err){
+					return callback(err);
+				}
 				callback(null,docs);
 			})
 		})
