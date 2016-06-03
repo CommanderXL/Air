@@ -1,0 +1,148 @@
+/**
+ * Created by XRene on 2015/12/1.
+ */
+/*
+* @Author: xl
+* @Date:   2015-08-22 08:23:01
+* @Last Modified by:   xl
+* @Last Modified time: 2015-08-23 08:42:45
+*/
+@charset "utf-8";
+
+*{
+    margin:0;
+    padding: 0;
+}
+html{
+    height: 100%;
+}
+body{
+    font:12px "lucida Grande",Verdana,"Microsoft YaHei";
+    height: 100%;
+    color: #3f444a;
+}
+
+#login-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    .banner{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url("/images/login-back.png") center #fff;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        z-index: -1;
+    }
+    #header{
+        height: 100px;
+        line-height: 100px;
+        background-color:rgba(144,205,255,.2);
+        position: relative;
+    }
+
+    .header-logo{
+        width: 80px;
+        background: url("/images/logo.png") center #fff;
+        background-size: cover;
+        margin-left: 50px;
+    }
+
+    .header-logo,.header-title{
+        float: left;
+        margin-top: 10px;
+        margin-right: 20px;
+        height: 80px;
+    }
+    #main-title,#sub-title{
+        height: 100%;
+        line-height: 80px;
+        display: inline-block;
+    }
+    #main-title{
+        font-size: 32px;
+        font-weight: bold;
+        color: #fff;
+    }
+    #sub-title{
+        font-size: 30px;
+        color: #fff;
+    }
+    #main{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 650px;
+        margin-left: -325px;
+        margin-top: -190px;
+        background-color:rgba(255,255,255,.1);
+    }
+
+    #login-title{
+        position: relative;
+        margin-top: 40px;
+        width: 99%;
+        text-align: center;
+        letter-spacing: 9px;
+        height: 40px;
+        line-height: 40px;
+        color: #333;
+        font-size: 26px;
+    }
+    .forms{
+        position: relative;
+        width: 47%;
+        margin:0 auto;
+        height: 320px;
+        padding: 50px 15px 0 15px;
+    }
+    .login-forms{
+        position: relative;
+        z-index: 50;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        padding-left: 10px;
+    }
+
+    .form{
+        height: 38px;
+        line-height: 38px;
+        position: absolute;
+        left: 0;
+        border: none;
+        width: 80%;
+        background-color:rgba(255,255,255,.4);
+        border-radius: 5px;
+        padding-left: 50px;
+    }
+    #bottom-web{
+        width: 100%;
+        position: relative;
+        margin-top: 50px;
+        height: 38px;
+        line-height: 38px;
+    }
+    #loginButton{
+        position: absolute;
+        right: 20px;
+        height: 100%;
+        text-align: center;
+        width: 98px;
+        border-radius: 5px;
+        font-size: 20px;
+        text-decoration: none;
+        color:#fff;
+        background:#5d97da;
+        text-shadow: 1px 1px 1px rgba(255,255,255,.5);
+    }
+}
+
+
+

@@ -1,0 +1,86 @@
+/**
+ * Created by XRene on 2015/12/10.
+ */
+.status-total {
+  padding: 10px;
+}
+.status-total .status-time {
+  float: left;
+  width: 200px;
+  border: 2px solid #e3e3e3;
+  margin-right: 10px;
+  font-size: 16px;
+}
+.status-total .status-time .time-title {
+  padding: 8px 10px;
+  border-bottom: 2px solid #e3e3e3;
+}
+.status-total .status-time .right-time {
+  padding: 10px;
+}
+.status-total .air-box {
+  float: left;
+  border: 2px solid #e3e3e3;
+  font-size: 15px;
+}
+.status-total .air-box .air-title {
+  padding: 8px 10px;
+  border-bottom: 2px solid #e3e3e3;
+}
+.status-total .air-box .air-total {
+  padding: 10px;
+}
+.status-total .air-box .air-total p {
+  display: inline-block;
+  margin-right: 25px;
+}
+.status-total .air-box .air-total span {
+  font-weight: bold;
+}
+.status-total .air-box .air-total .t-num {
+  color: #62BC89;
+}
+.status-total .air-box .air-total .t-good {
+  color: #62BC89;
+}
+.status-total .air-box .air-total .t-bad {
+  color: red;
+}
+.status-box {
+  position: absolute;
+  top: 69px;
+  left: 0;
+  right: 0px;
+  bottom: 0;
+  padding: 10px;
+}
+.status-box .status-title {
+  font-size: 20px;
+}
+.status-box .status-content {
+  position: absolute;
+  top: 37px;
+  bottom: 0;
+  left: 10px;
+  right: 0;
+}
+.status-box .status-content-tabs {
+  position: relative;
+}
+.status-box .status-content-tabs .tab-row {
+  color: #9b9b9b;
+  background-color: #e2f2e9;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  padding: 8px 10px;
+  margin-right: 4px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.status-box .status-content-tabs .tab-row.active-tab {
+  color: #fff;
+  background-color: #62BC89;
+}
+.status-box .global-table {
+  top: 36px;
+}

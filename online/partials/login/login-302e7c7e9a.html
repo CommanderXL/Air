@@ -1,0 +1,27 @@
+<div id="login-container" ng-controller="loginCtrl">
+    <div class="banner"></div>
+    <header id="header">
+        <div class="header-logo"></div>
+        <div class="header-title">
+            <h2 id="main-title">北京林业大学&nbsp;</h2>
+            <p id="sub-title">分布式空调控制系统</p>
+        </div>
+    </header>
+    <div id="main">
+        <h2 id="login-title">登录</h2>
+        <div class="forms">
+            <div class="account login-forms">
+                <span>账号</span>
+                <input type="text" class="form userName" ng-model="account.name"/>
+            </div>
+            <div class="password login-forms">
+                <span>密码</span>
+                <input type="password" class="form password" ng-model="account.val"/>
+            </div>
+            <div id="bottom-web">
+                <a href="##" id="forgetpwd">忘记密码?</a>
+                <a id="loginButton" ng-click="loginFn()">登录</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="table-box" ng-controller="tableController">
+    <div class="room-choose-panel">
+        <div class="floor-select">
+            <div class="param-item">
+                <p class="param-title">楼层选择</p>
+                <div class="param-box">
+                    <span  ng-repeat="val in list.floorList" ng-class="{true: 'item-active', false: ''}[val === selectedFloor]" ng-click="list.selectFloor(val)">{{:: val}}</span>
+                </div>
+            </div>
+            <div class="param-item">
+                <p class="param-title">教室选择</p>
+                <div class="param-box">
+                    <span  ng-repeat="val in showRoomList" ng-class="{true: 'item-active', false: ''}[val === selectedRoom]" ng-click="list.selectRoom(val)">{{:: val}}</span>
+                </div>
+            </div>
+            <div class="param-item time-select">
+                <p class="param-title"><span class="icon icon-calendar"></span>起始时间: </p>
+                <input type="text" ng-model="date.from" datepicker/>
+                <p class="param-title"><span class="icon icon-calendar"></span>结束时间: </p>
+                <input type="text" ng-model="date.to" datepicker/>
+            </div>
+            <div class="param-item electron-select">
+                <div class="param-box">
+                    <span ng-repeat="(key, val) in chartIndex" ng-class="{true: 'item-active', false: ''}[val === selectedChart]" ng-click="list.selectChart(val)">{{:: key}}</span>
+                </div>
+            </div>
+            <div class="param-item">
+                <p class="search-btn" ng-click="query()"><span class="icon icon-search"></span>搜索</p>
+            </div>
+        </div>
+    </div>
+    <div class="room-data-panel">
+        <div class="global-table table-item">
+            <ul class="table-header">
+                <li class="table-cell t-w100">教室</li>
+                <li class="table-cell t-w200">编号</li>
+                <li class="table-cell t-w100">开关</li>
+                <li class="table-cell t-w100">温度</li>
+                <li class="table-cell t-w100">模式</li>
+                <li class="table-cell t-w100">风速</li>
+                <li class="table-cell t-w200">风向</li>
+                <li class="table-cell">时间</li>
+            </ul>
+            <div class="table-content">
+                <div class="table-row" ng-repeat="data in dataList | orderBy: 'id'">
+                    <div class="table-cell t-w100">{{data.id.slice(0, 3)}}</div>
+                    <div class="table-cell t-w200">{{data.location}}</div>
+                    <div class="table-cell t-w100">{{data.switch | WD}}</div>
+                    <div class="table-cell t-w100">{{data.temperature}}℃</div>
+                    <div class="table-cell t-w100">{{data.pattern | WD}}</div>
+                    <div class="table-cell t-w100">{{data.windspeed}}级</div>
+                    <div class="table-cell t-w200">{{data.winddirection | WD}}</div>
+                    <div class="table-cell">{{data.time | date: 'yyyy-MM-dd HH:mm:ss'}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="room-chart" chart-data>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="status-container" ng-controller="statusController">
+    <div class="status-total clearfix">
+        <div class="status-time">
+            <p class="time-title">系统时间</p>
+            <div class="right-time">
+                {{date.year}}-{{date.month}}-{{date.day}} {{date.hour}}:{{date.minutes}}:{{date.seconds}} <!--星期 {{date.today}}-->
+            </div>
+        </div>
+        <div class="air-box">
+            <p class="air-title">运行状态</p>
+            <div class="air-total">
+                <p>空调总数: <span class="t-num">75</span> 台</p>
+                <p>运行正常: <span class="t-good">75</span> 台</p>
+                <p>运行异常: <span class="t-bad">0</span> 台</p>
+            </div>
+        </div>
+    </div>
+    <div class="status-box">
+        <!--<p class="status-title">运行状态</p>-->
+        <div class="status-content">
+            <div class="status-content-tabs">
+                <a class="tab-row" ng-repeat="item in ['1楼', '2楼', '3楼', '4楼']" ng-class="{true: 'active-tab', false: ''}[item === selectedItem]" ng-click="queryData(item)">{{item}}</a>
+            </div>
+            <div class="global-table">
+                <ul class="table-header">
+                    <li class="table-cell t-w80">教室</li>
+                    <li class="table-cell t-w200">编号</li>
+                    <li class="table-cell t-w150">开关</li>
+                    <li class="table-cell t-w150">温度</li>
+                    <li class="table-cell t-w150">室内温度</li>
+                    <li class="table-cell t-w150">模式</li>
+                    <li class="table-cell t-w150">风速</li>
+                    <li class="table-cell t-w150">风向</li>
+                    <li class="table-cell">时间</li>
+                </ul>
+                <div class="table-content">
+                    <div class="table-row" ng-repeat="data in dataList | orderBy: 'id'">
+                        <div class="table-cell t-w80">{{data.id.slice(0,3)}}</div>
+                        <div class="table-cell t-w200">{{data.location}}</div>
+                        <div class="table-cell t-w150">{{data.switch | WD}}</div>
+                        <div class="table-cell t-w150">{{data.temperature}}℃</div>
+                        <div class="table-cell t-w150">{{data.Rtemperature}}℃</div>
+                        <div class="table-cell t-w150">{{data.pattern | WD}}</div>
+                        <div class="table-cell t-w150">{{data.windspeed}}级</div>
+                        <div class="table-cell t-w150">{{data.winddirection | WD}}</div>
+                        <div class="table-cell">{{data.time | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,158 @@
+
+<div class="control-box" ng-controller="selectCtrl">
+    <div class="control-select">
+        <div class="select-header">
+            <span class="select-title">选择空调类型: </span>
+            <div class="select-category select-item" base-droplist>
+                <div class="default-item">{{selectedAir}}<span class="icon icon-circle-down"></span></div>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="(key, val) in airList" ng-click="selectAir(key, val)">{{key}}</li>
+                </ul>
+            </div>
+            <div class="total-btns">
+                <!--<div class="btn-item total-open" ng-click="applyControl('on')">开启选中对象</div>-->
+                <div class="btn-item total-close" ng-click="applyControl('off')">关闭选中对象</div>
+            </div>
+        </div>
+        <div class="select-content">
+            <div class="floor-item" ng-class="{true: 'select-content-active', false: ''}[list.nowItem[0] === true]" >
+                <div class="floor-header">
+                    <span class="icon icon-plus" ng-click="list.openItem(0)"></span>&nbsp;&nbsp;一楼
+                    <div class="floor-check">
+                        <span ng-class="{true: 'all-check', false: ''}[allCheckArr[0] === true]" ng-click="allControl(0, true)">全开</span>
+                        <span ng-click="allControl(0, false)">全关</span>
+                    </div>
+                </div>
+                <div class="floor-btngroup">
+                    <div class="btngroup-item" ng-repeat="(key, val) in floorList[0]">
+                        <!--<span class="icon icon-checkbox-checked"></span>-->
+                        <div class="btngroup-container">
+                            <p class="btngroup-title">{{:: key}}</p>
+                            <div class="btngroup-box">
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[4] === true]" ng-click="selectClassAndAir(0, key, 4)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[0] === true]">前</span>
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[5] === true]" ng-click="selectClassAndAir(0, key, 5)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[1] === true]">后</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="btngroup-item" ng-repeat="(key, val) in floorList[4]">
+                        <div class="btngroup-container">
+                            <p class="btngroup-title">{{:: key}}</p>
+                            <div class="btngroup-box">
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[6] === true]" ng-click="selectClassAndAir(4, key, 6)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[0] === true]">前</span>
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[7] === true]" ng-click="selectClassAndAir(4, key, 7)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[1] === true]">左后</span>
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[8] === true]" ng-click="selectClassAndAir(4, key, 8)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[2] === true]">右后</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="floor-item" ng-class="{true: 'select-content-active', false: ''}[list.nowItem[1] === true]" >
+                <div class="floor-header">
+                    <span class="icon icon-plus" ng-click="list.openItem(1)"></span>&nbsp;&nbsp;二楼
+                    <div class="floor-check">
+                        <span  ng-class="{true: 'all-check', false: ''}[allCheckArr[1] === true]" ng-click="allControl(1, true)">全开</span>
+                        <span  ng-click="allControl(1, false)">全关</span>
+                    </div>
+                </div>
+                <div class="floor-btngroup">
+                    <div class="btngroup-item" ng-repeat="(key, val) in floorList[1]">
+                        <!--<span class="icon icon-checkbox-checked"></span>-->
+                        <div class="btngroup-container">
+                            <p class="btngroup-title">{{:: key}}</p>
+                            <div class="btngroup-box">
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[4] === true]" ng-click="selectClassAndAir(1, key, 4)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[0] === true]">前</span>
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[5] === true]" ng-click="selectClassAndAir(1, key, 5)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[1] === true]">后</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="floor-item" ng-class="{true: 'select-content-active', false: ''}[list.nowItem[2] === true]" >
+                <div class="floor-header">
+                    <span class="icon icon-plus" ng-click="list.openItem(2)"></span>&nbsp;&nbsp;三楼
+                    <div class="floor-check">
+                        <span ng-class="{true: 'all-check', false: ''}[allCheckArr[2] === true]" ng-click="allControl(2, true)">全开</span>
+                        <span ng-click="allControl(2, false)">全关</span>
+                    </div>
+                </div>
+                <div class="floor-btngroup">
+                    <div class="btngroup-item" ng-repeat="(key, val) in floorList[2]">
+                        <!--<span class="icon icon-checkbox-checked"></span>-->
+                        <div class="btngroup-container">
+                            <p class="btngroup-title">{{:: key}}</p>
+                            <div class="btngroup-box">
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[4] === true]" ng-click="selectClassAndAir(2, key, 4)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[0] === true]">前</span>
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[5] === true]" ng-click="selectClassAndAir(2, key, 5)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[1] === true]">后</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="floor-item" ng-class="{true: 'select-content-active', false: ''}[list.nowItem[3] === true]" >
+                <div class="floor-header">
+                    <span class="icon icon-plus" ng-click="list.openItem(3)"></span>&nbsp;&nbsp;四楼
+                    <div class="floor-check">
+                        <span ng-class="{true: 'all-check', false: ''}[allCheckArr[3] === true]" ng-click="allControl(3, true)">全开</span>
+                        <span ng-click="allControl(3, false)">全关</span>
+                    </div>
+                </div>
+                <div class="floor-btngroup">
+                    <div class="btngroup-item" ng-repeat="(key, val) in floorList[3]">
+                        <!--<span class="icon icon-checkbox-checked"></span>-->
+                        <div class="btngroup-container">
+                            <p class="btngroup-title">{{:: key}}</p>
+                            <div class="btngroup-box">
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[4] === true]" ng-click="selectClassAndAir(3, key, 4)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[0] === true]">前</span>
+                                <span class="icon" ng-class="{true: 'icon-checkbox-checked', false: 'icon-checkbox-unchecked'}[val[5] === true]" ng-click="selectClassAndAir(3, key, 5)"></span>
+                                <span ng-class="{true: 'control-status-open', false: 'control-status-close'}[val[1] === true]">后</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control-controller">
+        <div class="param-select">
+            <h2>参数调节</h2>
+            <div class="param-item">
+                <p class="param-title">温度</p>
+                <div class="param-box">
+                    <span  ng-repeat="val in list.temperatureList" ng-class="{true: 'item-active', false: ''}[val === selectedTemperature]" ng-click="list.selectT(val)">{{:: val}}℃</span>
+                </div>
+            </div>
+            <div class="param-item">
+                <p class="param-title">模式</p>
+                <div class="param-box">
+                    <span ng-repeat="(key, val) in list.patternList" ng-class="{true: 'item-active', false: ''}[key === selectedPattern]" ng-click="list.selectPattern(key, val)">{{:: key}}</span>
+                </div>
+            </div>
+            <div class="param-item">
+                <p class="param-title">风速</p>
+                <div class="param-box">
+                    <span ng-repeat="(key, val) in list.WSList" ng-class="{true: 'item-active', false: ''}[key === selectedWS]" ng-click="list.selectWS(key, val)">{{:: key}}</span>
+                </div>
+            </div>
+            <div class="param-item">
+                <p class="param-title">风向</p>
+                <div class="param-box">
+                    <span ng-repeat="(key, val) in list.WDList" ng-class="{true: 'item-active', false: ''}[key === selectedWD]" ng-click="list.selectWD(key, val)">{{:: key}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="param-btngroup">
+            <a class="btn-item" ng-click="applyControl('on', 'apply')">应用至所选对象</a>
+        </div>
+    </div>
+</div>

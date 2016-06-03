@@ -1,0 +1,240 @@
+/**
+ * Created by XRene on 2015/12/2.
+ */
+/*自定义滚动条*/
+::-webkit-scrollbar-track {
+  border-radius: 1px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1px;
+  background-color: #2c3e50;
+  background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent);
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+.public-box {
+  position: absolute;
+  top: 42px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+.global-table {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: #fff;
+  font-size: 14px;
+}
+.global-table .table-cell {
+  position: relative;
+  padding: 10px 0;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.global-table .table-row {
+  display: table;
+  width: 100%;
+  border-bottom: 1px solid #e8eaed;
+}
+.global-table .table-row:hover {
+  background: #f5f5f5;
+  transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+.global-table .table-header {
+  font-weight: 700;
+  color: #fff;
+  background-color: #49acea;
+  display: table;
+  width: 100%;
+}
+.global-table .table-content {
+  position: absolute;
+  width: 100%;
+  top: 38px;
+  bottom: 0;
+  overflow: auto;
+  border: 1px solid #e8eaed;
+  box-sizing: border-box;
+}
+.global-table .t-w50 {
+  width: 50px;
+}
+.global-table .t-w80 {
+  width: 80px;
+}
+.global-table .t-w100 {
+  width: 100px;
+}
+.global-table .t-w150 {
+  width: 150px;
+}
+.global-table .t-w80 {
+  width: 80px;
+}
+.global-table .t-w200 {
+  width: 200px;
+}
+.global-table .t-w300 {
+  width: 300px;
+}
+.global-table .t-w500 {
+  width: 500px;
+}
+.global-table .t-p20 {
+  width: 30%;
+}
+.global-table .t-tr {
+  text-align: right;
+}
+.global-table .t-tl {
+  text-align: left;
+}
+.global-table .note {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 3px 5px;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.global-table .note1 {
+  background-color: #68b92e;
+}
+.global-table .note2 {
+  background-color: #0093dd;
+}
+.global-table .note3 {
+  background-color: #801d77;
+}
+.global-table .note4 {
+  background-color: #eb891a;
+}
+.global-table .note5 {
+  background-color: #dd1a69;
+}
+.global-table .note6 {
+  background-color: #da251c;
+}
+.select-item {
+  position: relative;
+  display: inline-block;
+  padding: 8px 10px;
+  background-color: #62BC89;
+  font-size: 14px;
+  cursor: pointer;
+  height: 34px;
+  line-height: 34px;
+  margin-right: 10px;
+  color: #fff;
+}
+.select-item .default-item {
+  position: relative;
+}
+.select-item .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  box-sizing: border-box;
+  z-index: 999;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.select-item .dropdown-menu li {
+  font-size: 14px;
+  padding: 0 10px;
+  cursor: pointer;
+  line-height: 1.8;
+  color: #333;
+  font-weight: normal;
+  background: #fffcee;
+}
+.select-item .dropdown-menu li:hover {
+  color: #49acea;
+}
+.public-modal-dialog {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  font-size: 14px;
+}
+.public-modal-dialog .modal-dialog {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+.public-modal-dialog .modal-header {
+  font-size: 16px;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.public-modal-dialog .modal-header .icon-cross {
+  margin-top: 3px;
+  margin-right: 0;
+  float: right;
+  cursor: pointer;
+}
+.public-modal-dialog .modal-body {
+  padding: 10px 15px;
+  padding-right: 10px;
+}
+.public-modal-dialog .modal-body .dropdown-menu {
+  height: 200px;
+  overflow-y: auto;
+}
+.public-modal-dialog .modal-btn {
+  float: right;
+  border: 1px solid #e5e5e5;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.public-modal-dialog .modal-btn:hover {
+  background: #eee;
+}
+.tab-active {
+  color: #62BC89;
+}
+.tab-active:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: ' ';
+  display: inline-block;
+  height: 4px;
+  background-color: #62BC89;
+  width: 100%;
+}

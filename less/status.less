@@ -1,0 +1,86 @@
+/**
+ * Created by XRene on 2015/12/10.
+ */
+.status-total {
+    padding: 10px;
+    .status-time {
+        float: left;
+        width: 200px;
+        border: 2px solid #e3e3e3;
+        margin-right: 10px;
+        font-size: 16px;
+        .time-title {
+            padding: 8px 10px;
+            border-bottom: 2px solid #e3e3e3;
+        }
+        .right-time {
+            padding: 10px;
+        }
+    }
+    .air-box {
+        float: left;
+        border: 2px solid #e3e3e3;
+        font-size: 15px;
+        .air-title {
+            padding: 8px 10px;
+            border-bottom: 2px solid #e3e3e3;
+        }
+        .air-total {
+            padding: 10px;
+            p {
+                display: inline-block;
+                margin-right: 25px;
+            }
+            span {
+                font-weight: bold;
+            }
+            .t-num {
+                color: #62BC89;
+            }
+            .t-good {
+                color: #62BC89;
+            }
+            .t-bad {
+                color: red;
+            }
+        }
+    }
+}
+.status-box {
+    position: absolute;
+    top: 69px;
+    left: 0;
+    right: 0px;
+    bottom: 0;
+    padding: 10px;
+    .status-title {
+        font-size: 20px;
+    }
+    .status-content {
+        position: absolute;
+        top: 37px;
+        bottom: 0;
+        left: 10px;
+        right: 0;
+    }
+    .status-content-tabs {
+        position: relative;
+        .tab-row {
+            color: #9b9b9b;
+            background-color: #e2f2e9;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 15px;
+            padding: 8px 10px;
+            margin-right: 4px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            &.active-tab {
+                color: #fff;
+                background-color: #62BC89;
+            }
+        }
+    }
+    .global-table {
+        top: 36px;
+    }
+}

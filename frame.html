@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>检测平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol {
+            list-style: none;
+        }
+        .tab-rows {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .tab-rows li {
+            cursor: pointer;
+            display: inline-block;
+            padding: 8px 10px;
+            background: #e3e3e3;
+            color: #fff;
+            border-radius: 8px;
+        }
+        .tab-item {
+            color: red !important;
+        }
+        html, body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<ul class="tab-rows">
+    <li class="tab-item">一教状态监测</li>
+    <li>二教状态监测</li>
+</ul>
+<iframe src="http://localhost:8080/#/table" frameborder="0" width="100%" height="100%"></iframe>
+<script>
+    window.onload = function () {
+        var tabs = document.getElementsByTagName('li');
+        var url = 'http://localhost:8080/#/table';
+        var iframe = document.getElementsByTagName('iframe')[0];
+        for(var i = 0; i < tabs.length; i++) {
+            (function (x) {
+                tabs[x].addEventListener('click', function (e) {
+                    if(x === 0) {
+                        url = 'http://localhost:8080/#/table';
+                    } else {
+                        url = 'http://localhost:8081/#/table';
+                    }
+                    iframe.src = url;
+                    for(var j = 0; j < tabs.length; j ++) {
+                        tabs[j].className = '';
+                    }
+                    tabs[x].className = 'tab-item';
+                })
+            })(i)
+        }
+    }
+</script>
+</body>
+</html>
